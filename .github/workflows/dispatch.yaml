@@ -7,6 +7,7 @@ on:
 
 jobs:
   trigger-fork:
+    if: github.repository_owner == 'subject-test-22'
     runs-on: ubuntu-latest
     steps:
       - run: echo "main branch pushed"
