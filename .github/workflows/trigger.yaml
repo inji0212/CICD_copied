@@ -9,4 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'inji0212/CICD_copied'
     steps:
-      - run : echo 'sync'
+      - uses: actions/checkout@v4
+      - name: Sync fork
+        run: |
+          git remote add upstream https://github.com/subject-test-22/CICD.git
+          git fetch upstream
+          git checkout main
+          git merge upstream/main
+          git push origin main
